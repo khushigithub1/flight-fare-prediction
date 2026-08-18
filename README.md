@@ -200,9 +200,7 @@ XGBoost provides a tree-based gradient boosting approach and supports regression
 
 ## 🚀 Live Demo
 
-[![Open Live Demo](https://img.shields.io/badge/🚀%20Open%20Live%20Demo-Flight%20Fare%20Prediction-brightgreen?style=for-the-badge)](YOUR_LIVE_DEMO_URL)
-
-> Live deployment link will be added after cloud deployment.
+[![Open Live Demo](https://img.shields.io/badge/🚀%20Open%20Live%20Demo-Flight%20Fare%20Prediction-brightgreen?style=for-the-badge)](https://flight-fare-prediction-th4x.onrender.com/)
 
 ---
 
