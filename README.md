@@ -59,36 +59,29 @@ The dataset includes flight details such as:
 | Price | Flight ticket price / Target Variable |
 
 ---
-
 ## 🔍 Exploratory Data Analysis
 
-The following analyses were performed:
+The project includes three levels of Exploratory Data Analysis to understand flight fare patterns and relationships between flight characteristics and ticket prices.
 
 ### Univariate Analysis
 
-* Flight Fare Distribution
-* Airline Distribution
-* Number of Stops Distribution
-* Journey Month Distribution
-* Journey Day Distribution
-* Flight Duration Analysis
+- Flight Price Distribution
+- Airline Frequency Distribution
+- Number of Stops Distribution
 
 ### Bivariate Analysis
 
-* Airline vs Flight Fare
-* Total Stops vs Flight Fare
-* Journey Month vs Flight Fare
-* Source vs Flight Fare
-* Destination vs Flight Fare
-* Flight Duration vs Flight Fare
+- Airline vs Flight Price
+- Total Stops vs Flight Price
+- Journey Month vs Flight Price
 
 ### Multivariate Analysis
 
-* Correlation Analysis
-* Feature Relationship Exploration
-* Airline and Route Analysis
-* Flight Duration Analysis
-* Feature Importance Analysis
+- Airline + Number of Stops vs Flight Price
+- Correlation Heatmap
+- Flight Price vs Number of Stops
+
+
 
 ---
 
