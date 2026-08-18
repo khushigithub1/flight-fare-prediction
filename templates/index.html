@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flight Fare Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ===================== NAVBAR ===================== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+
+            <!-- Brand -->
+            <a href="#home" class="nav-brand">
+                <i class="fa-solid fa-plane-departure"></i>
+                <span>FarePilot</span>
+            </a>
+
+            <!-- Nav Links -->
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home"             class="nav-link active">Home</a></li>
+                <li><a href="#dashboard"        class="nav-link">Dashboard</a></li>
+                <li><a href="#business-insight" class="nav-link">Business Insight</a></li>
+                <li><a href="#prediction"       class="nav-link">Prediction</a></li>
+                <li><a href="#about"            class="nav-link">About</a></li>
+            </ul>
+
+            <!-- Right controls -->
+            <div class="nav-controls">
+                <!-- Theme toggle -->
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span id="themeIcon">☀️</span>
+                </button>
+                <!-- Hamburger -->
+                <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+
+        </div>
+
+        <!-- Mobile drawer -->
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="#home"             class="mobile-link active">Home</a>
+            <a href="#dashboard"        class="mobile-link">Dashboard</a>
+            <a href="#business-insight" class="mobile-link">Business Insight</a>
+            <a href="#prediction"       class="mobile-link">Prediction</a>
+            <a href="#about"            class="mobile-link">About</a>
+        </div>
+    </nav>
+
+
+    <!-- ===================== HOME / HERO ===================== -->
+    <section class="hero" id="home">
+        <div class="hero-bg-circles">
+            <span class="circle c1"></span>
+            <span class="circle c2"></span>
+            <span class="circle c3"></span>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="fa-solid fa-bolt"></i> ML-Powered Predictions
+            </div>
+            <h1>Flight Fare <br><span>Prediction</span></h1>
+            <p>Get instant, accurate flight fare estimates powered by machine learning.
+               Plan smarter, travel better.</p>
+            <div class="hero-cta">
+                <a href="#prediction" class="btn-primary">
+                    <i class="fa-solid fa-magnifying-glass-dollar"></i> Predict Fare
+                </a>
+                <a href="#dashboard" class="btn-outline">
+                    <i class="fa-solid fa-chart-line"></i> View Dashboard
+                </a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat-card">
+                <span class="stat-number">10K+</span>
+                <span class="stat-label">Flights Analysed</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">5</span>
+                <span class="stat-label">Airlines Covered</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">92%</span>
+                <span class="stat-label">Model Accuracy</span>
+            </div>
+            <div class="stat-card">
+                <span class="stat-number">&#8377;0</span>
+                <span class="stat-label">Cost to Use</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== DASHBOARD ===================== -->
+    <section class="section" id="dashboard">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Overview</span>
+                <h2>Dashboard</h2>
+                <p>A quick snapshot of fare trends, popular routes, and model performance.</p>
+            </div>
+
+            <div class="dashboard-grid">
+                <!-- KPI cards -->
+                <div class="kpi-card">
+                    <div class="kpi-icon blue">
+                        <i class="fa-solid fa-indian-rupee-sign"></i>
+                    </div>
+                    <div class="kpi-body">
+                        <span class="kpi-label">Average Fare</span>
+                        <span class="kpi-value">&#8377; 8,450</span>
+                        <span class="kpi-delta up">&#9650; 4.2% this month</span>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon green">
+                        <i class="fa-solid fa-plane"></i>
+                    </div>
+                    <div class="kpi-body">
+                        <span class="kpi-label">Total Routes</span>
+                        <span class="kpi-value">24</span>
+                        <span class="kpi-delta up">&#9650; 2 new routes</span>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon orange">
+                        <i class="fa-solid fa-ticket"></i>
+                    </div>
+                    <div class="kpi-body">
+                        <span class="kpi-label">Cheapest Fare</span>
+                        <span class="kpi-value">&#8377; 1,800</span>
+                        <span class="kpi-delta down">&#9660; SpiceJet Economy</span>
+                    </div>
+                </div>
+
+                <div class="kpi-card">
+                    <div class="kpi-icon purple">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <div class="kpi-body">
+                        <span class="kpi-label">Model R² Score</span>
+                        <span class="kpi-value">0.918</span>
+                        <span class="kpi-delta up">&#9650; High accuracy</span>
+                    </div>
+                </div>
+
+                <!-- Chart placeholders -->
+                <div class="chart-card wide">
+                    <h3><i class="fa-solid fa-chart-area"></i> Fare Trend by Month</h3>
+                    <div class="chart-bars">
+                        <div class="bar-group">
+                            <div class="bar" style="--h:55%"><span>Jan</span></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="--h:70%"><span>Feb</span></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="--h:45%"><span>Mar</span></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="--h:80%"><span>Apr</span></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="--h:95%"><span>May</span></div>
+                        </div>
+                        <div class="bar-group">
+                            <div class="bar" style="--h:60%"><span>Jun</span></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chart-card">
+                    <h3><i class="fa-solid fa-ranking-star"></i> Top Airlines by Fare</h3>
+                    <ul class="rank-list">
+                        <li><span class="rank-name">Jet Airways</span>   <div class="rank-bar" style="--w:88%"></div><span>&#8377;12k</span></li>
+                        <li><span class="rank-name">Air India</span>     <div class="rank-bar" style="--w:70%"></div><span>&#8377;9.5k</span></li>
+                        <li><span class="rank-name">Vistara</span>       <div class="rank-bar" style="--w:65%"></div><span>&#8377;8.8k</span></li>
+                        <li><span class="rank-name">IndiGo</span>        <div class="rank-bar" style="--w:45%"></div><span>&#8377;6k</span></li>
+                        <li><span class="rank-name">SpiceJet</span>      <div class="rank-bar" style="--w:30%"></div><span>&#8377;4k</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== BUSINESS INSIGHT ===================== -->
+    <section class="section alt-bg" id="business-insight">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Analysis</span>
+                <h2>Business Insight</h2>
+                <p>Key patterns and data-driven insights extracted from the flight fare dataset.</p>
+            </div>
+
+            <div class="insight-grid">
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+                    <h4>Best Time to Book</h4>
+                    <p>Booking <strong>3–6 weeks in advance</strong> yields fares up to 32% lower
+                       compared to last-minute bookings.</p>
+                    <div class="insight-badge green">Save up to 32%</div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                    </div>
+                    <h4>Busiest Route</h4>
+                    <p><strong>Delhi → Mumbai</strong> is the highest-demand corridor, driving
+                       prices 18% above the national average in peak season.</p>
+                    <div class="insight-badge orange">Peak Season +18%</div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                    </div>
+                    <h4>Stops Impact</h4>
+                    <p>Adding even <strong>1 stop</strong> reduces fare by an average of &#8377;1,200,
+                       but increases travel time by 2–3 hours.</p>
+                    <div class="insight-badge blue">&#8377;1,200 avg saving</div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fa-solid fa-sun"></i>
+                    </div>
+                    <h4>Seasonal Surge</h4>
+                    <p>May–June and December show the highest average fares, peaking at
+                       <strong>₹14,500</strong> for premium routes.</p>
+                    <div class="insight-badge red">High-demand months</div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fa-solid fa-moon"></i>
+                    </div>
+                    <h4>Evening Advantage</h4>
+                    <p>Flights departing between <strong>6 PM – 9 PM</strong> are on average
+                       8% cheaper than morning departures on the same route.</p>
+                    <div class="insight-badge green">8% cheaper</div>
+                </div>
+
+                <div class="insight-card">
+                    <div class="insight-icon">
+                        <i class="fa-solid fa-suitcase-rolling"></i>
+                    </div>
+                    <h4>Airline Class Effect</h4>
+                    <p><strong>Business class</strong> fares are 2.8× higher on average, with
+                       Vistara Premium leading the premium segment.</p>
+                    <div class="insight-badge purple">2.8× premium premium</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== PREDICTION ===================== -->
+    <section class="section" id="prediction">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">ML Model</span>
+                <h2>Predict Your Flight Fare</h2>
+                <p>Fill in the details below and get an instant fare estimate.</p>
+            </div>
+
+            <div class="prediction-wrapper">
+                <form action="/predict" method="post" class="predict-form">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="airline">
+                                <i class="fa-solid fa-plane-circle-check"></i> Airline
+                            </label>
+                            <select name="airline" id="airline" required>
+                                <option value="" disabled selected>Select Airline</option>
+                                <option>Air Asia</option>
+                                <option>Air India</option>
+                                <option>GoAir</option>
+                                <option>IndiGo</option>
+                                <option>Jet Airways</option>
+                                <option>Jet Airways Business</option>
+                                <option>Multiple carriers</option>
+                                <option>Multiple carriers Premium economy</option>
+                                <option>SpiceJet</option>
+                                <option>Trujet</option>
+                                <option>Vistara</option>
+                                <option>Vistara Premium economy</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="source">
+                                <i class="fa-solid fa-location-dot"></i> Source City
+                            </label>
+                            <select name="source" id="source" required>
+                                <option value="" disabled selected>Select Source</option>
+                                <option>Banglore</option>
+                                <option>Chennai</option>
+                                <option>Delhi</option>
+                                <option>Kolkata</option>
+                                <option>Mumbai</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="destination">
+                                <i class="fa-solid fa-flag-checkered"></i> Destination City
+                            </label>
+                            <select name="destination" id="destination" required>
+                                <option value="" disabled selected>Select Destination</option>
+                                <option>Banglore</option>
+                                <option>Cochin</option>
+                                <option>Delhi</option>
+                                <option>Hyderabad</option>
+                                <option>Kolkata</option>
+                                <option>New Delhi</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="stops">
+                                <i class="fa-solid fa-circle-nodes"></i> Stops
+                            </label>
+                            <select name="stops" id="stops" required>
+                                <option value="" disabled selected>Select Stops</option>
+                                <option>Non-Stop</option>
+                                <option>1 Stop</option>
+                                <option>2 Stops</option>
+                                <option>3 Stops</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="journey_date">
+                                <i class="fa-solid fa-calendar-days"></i> Departure Date
+                            </label>
+                            <input type="date" name="journey_date" id="journey_date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dep_time">
+                                <i class="fa-solid fa-plane-departure"></i> Departure Time
+                            </label>
+                            <input type="time" name="dep_time" id="dep_time" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="arr_time">
+                                <i class="fa-solid fa-plane-arrival"></i> Arrival Time
+                            </label>
+                            <input type="time" name="arr_time" id="arr_time" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="duration">
+                                <i class="fa-solid fa-hourglass-half"></i> Duration
+                            </label>
+                            <input type="text" id="duration" placeholder="Auto calculated" disabled>
+                        </div>
+
+                    </div>
+
+                    <button type="submit" class="predict-btn">
+                        <i class="fa-solid fa-paper-plane"></i> Predict Fare
+                    </button>
+
+                </form>
+
+                {% if prediction %}
+                <div class="result-card">
+                    <div class="result-icon">&#9989;</div>
+                    <div class="result-text">
+                        <span class="result-label">Estimated Flight Fare</span>
+                        <span class="result-value">&#8377; {{ prediction }}</span>
+                    </div>
+                </div>
+                {% endif %}
+
+                {% if error %}
+                <div class="error-card">
+                    <div class="result-icon">&#9888;&#65039;</div>
+                    <div class="result-text">
+                        <span class="result-label" style="color:#dc2626;">Prediction Error</span>
+                        <span style="font-size:14px;color:var(--text-secondary);">{{ error }}</span>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== ABOUT ===================== -->
+    <section class="section alt-bg" id="about">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">Project Info</span>
+                <h2>About Flight Fare</h2>
+                <p>Everything you need to know about this project and how it works.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-info">
+                    <h3>What is this?</h3>
+                    <p>FarePilot is a machine learning web application that predicts domestic
+                       Indian flight fares based on historical ticket data. It uses a trained
+                       Random Forest / XGBoost model to deliver reliable estimates in seconds.</p>
+
+                    <h3>How it works</h3>
+                    <ol class="how-list">
+                        <li><i class="fa-solid fa-database"></i> Data collected from multiple airline booking portals.</li>
+                        <li><i class="fa-solid fa-wand-magic-sparkles"></i> Feature engineering: date, duration, stops, airline encoding.</li>
+                        <li><i class="fa-solid fa-gears"></i> Model trained and validated using cross-validation.</li>
+                        <li><i class="fa-solid fa-bolt"></i> Live predictions served via Flask web API.</li>
+                    </ol>
+
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Scikit-learn</span>
+                        <span class="tech-tag">XGBoost</span>
+                        <span class="tech-tag">Flask</span>
+                        <span class="tech-tag">Pandas</span>
+                        <span class="tech-tag">NumPy</span>
+                    </div>
+                </div>
+
+                <div class="about-stats-col">
+                    <div class="model-card">
+                        <h4><i class="fa-solid fa-microchip"></i> Model Performance</h4>
+                        <div class="model-metric">
+                            <span>R² Score</span>
+                            <div class="metric-bar-wrap">
+                                <div class="metric-bar" style="--pct:91.8%"></div>
+                            </div>
+                            <span>91.8%</span>
+                        </div>
+                        <div class="model-metric">
+                            <span>MAE</span>
+                            <div class="metric-bar-wrap">
+                                <div class="metric-bar" style="--pct:85%"></div>
+                            </div>
+                            <span>&#8377;1,240</span>
+                        </div>
+                        <div class="model-metric">
+                            <span>RMSE</span>
+                            <div class="metric-bar-wrap">
+                                <div class="metric-bar" style="--pct:78%"></div>
+                            </div>
+                            <span>&#8377;1,890</span>
+                        </div>
+                    </div>
+
+                    <div class="dataset-card">
+                        <h4><i class="fa-solid fa-table"></i> Dataset Info</h4>
+                        <ul>
+                            <li><strong>Source:</strong> Kaggle / EaseMyTrip</li>
+                            <li><strong>Records:</strong> ~10,000 flights</li>
+                            <li><strong>Airlines:</strong> 5 carriers</li>
+                            <li><strong>Routes:</strong> 24 city pairs</li>
+                            <li><strong>Period:</strong> March – June</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <i class="fa-solid fa-plane-departure"></i> FarePilot
+            </div>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#dashboard">Dashboard</a>
+                <a href="#business-insight">Insights</a>
+                <a href="#prediction">Prediction</a>
+                <a href="#about">About</a>
+            </div>
+            <p class="footer-copy">&copy; 2024 FarePilot &mdash; Built with ML &amp; Flask</p>
+        </div>
+    </footer>
+
+
+    <!-- ===================== JAVASCRIPT ===================== -->
+    <script>
+    // ---- Navbar scroll effect ----
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // ---- Active nav link on scroll ----
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    function setActive() {
+        let current = '';
+        sections.forEach(sec => {
+            if (window.scrollY >= sec.offsetTop - 90) current = sec.id;
+        });
+        [...navLinks, ...mobileLinks].forEach(link => {
+            link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+        });
+    }
+    window.addEventListener('scroll', setActive);
+
+    // ---- Hamburger menu ----
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    hamburger.addEventListener('click', () => {
+        const open = mobileMenu.classList.toggle('open');
+        hamburger.classList.toggle('active', open);
+        hamburger.setAttribute('aria-expanded', open);
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('open');
+            hamburger.classList.remove('active');
+            hamburger.setAttribute('aria-expanded', false);
+        });
+    });
+
+    // ---- Theme toggle ----
+    const html = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon   = document.getElementById('themeIcon');
+
+    const saved = localStorage.getItem('theme') || 'light';
+    applyTheme(saved);
+
+    themeToggle.addEventListener('click', () => {
+        const next = html.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        applyTheme(next);
+        localStorage.setItem('theme', next);
+    });
+
+    function applyTheme(theme) {
+        html.setAttribute('data-theme', theme);
+        if (theme === 'dark') {
+            themeIcon.textContent = '🌙';
+        } else {
+            themeIcon.textContent = '☀️';
+        }
+    }
+
+    // ---- Auto-calculate duration ----
+    const depInput = document.getElementById('dep_time');
+    const arrInput = document.getElementById('arr_time');
+    const durInput = document.getElementById('duration');
+
+    function calcDuration() {
+        if (!depInput.value || !arrInput.value) return;
+        const [dh, dm] = depInput.value.split(':').map(Number);
+        const [ah, am] = arrInput.value.split(':').map(Number);
+        let diff = (ah * 60 + am) - (dh * 60 + dm);
+        if (diff < 0) diff += 1440;
+        durInput.value = `${Math.floor(diff / 60)}h ${diff % 60}m`;
+    }
+    depInput.addEventListener('change', calcDuration);
+    arrInput.addEventListener('change', calcDuration);
+
+    // ---- Smooth scroll for all anchor links ----
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', e => {
+            const target = document.querySelector(a.getAttribute('href'));
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    });
+    </script>
+
+</body>
+</html>
